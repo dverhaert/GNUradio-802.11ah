@@ -1,8 +1,6 @@
 # GNUradio-802.11ah
 
-Hey there,
-
-This respository contains an IEEE 802.11ah transceiver implementation in GNUradio. It has been tested with the Ettus USRP N210, but should be able to work with other high-bandwidth Software Defined Radios (SDRs) as well. It relies on a few other repositories, mainly the one created by Bastian Bloessl: https://github.com/bastibl/gr-ieee802-11. 
+This repository contains an IEEE 802.11ah transceiver implementation in GNUradio. It has been tested with the Ettus USRP N210, but should be able to work with other high-bandwidth Software Defined Radios (SDRs) as well. It relies on a few other repositories, mainly the one created by Bastian Bloessl: https://github.com/bastibl/gr-ieee802-11. 
 
 ## Installing GNUradio
 
