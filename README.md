@@ -44,7 +44,7 @@ Next up is installing the repository by Bastian Bloessl, you can find out how to
 Now, you should have Bastian's blocks working. Try to go through some of his examples to see if they are working. 
 
 ## Setting up GNUradio-802.11ah
-Now, all you need to do is open the 802_11_ah_txrx file in this repository and everything should be working! 
+Now, all you need to do is open the 802_11_ah_txrx file in this repository and everything should be working! Note that this is not a full 802.11ah implementation: just the PHY layer has been implemented (basic sending and receiving), not the MAC layer. Feel free to pick this up if you're interested!
 
 ## Troubleshooting
 If things don't work out, please check [Bastian's repository](https://github.com/bastibl/gr-ieee802-11) first. If your solution is not there and/or on the internet, feel free to open an issue or contact me personally.
