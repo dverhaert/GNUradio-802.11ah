@@ -4,9 +4,9 @@ This repository contains an IEEE 802.11ah transceiver implementation in GNUradio
 
 ## Background knowledge
 For some background knowledge, I suggest checking out the following papers:
-[Description of IEEE 802.11ah standard](https://arxiv.org/pdf/1402.4675.pdf)
-[Implementation of IEEE 802.11a/g/p receiver in gnuradio](http://conferences.sigcomm.org/sigcomm/2013/papers/srif/p9.pdf)
-[First steps in creating an IEEE 802.11ah transceiver](https://www.colorado.edu/itp/sites/default/files/attached-files/70130-130943_-_jaimin_shah_-_apr_25_2016_1005_pm_-_final_capstone_paper_resubmission_team_1.pdf)
+- [Description of IEEE 802.11ah standard](https://arxiv.org/pdf/1402.4675.pdf)
+- [Implementation of IEEE 802.11a/g/p receiver in gnuradio](http://conferences.sigcomm.org/sigcomm/2013/papers/srif/p9.pdf)
+- [First steps in creating an IEEE 802.11ah transceiver](https://www.colorado.edu/itp/sites/default/files/attached-files/70130-130943_-_jaimin_shah_-_apr_25_2016_1005_pm_-_final_capstone_paper_resubmission_team_1.pdf)
 
 Also, use Google a lot, it is an extremely valuable resource :).
 
