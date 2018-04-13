@@ -24,6 +24,7 @@ Then follow the instructions posted on [The GNUradio PyBOMBS Github repository](
 
     pip install PyBOMBS
     pybombs auto-config
+    pybombs recipes add-defaults
     pybombs prefix init ~/prefix -a myprefix -R gnuradio-default
 
 This last step can easily take a few hours, so be patient. After this, GNUradio should be installed in the folder "prefix" located in your home directory (~/prefix). Normally, Linux would install everything in various locations; doing this ensures everything is installed in one folder. This is really useful if you mess things up, since you can simply delete the prefix folder and try again. Now, _every_ time you want to start GNUradio in a new terminal, execute the following commands:
