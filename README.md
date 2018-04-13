@@ -2,6 +2,14 @@
 
 This repository contains an IEEE 802.11ah transceiver implementation in GNUradio. It has been tested with the Ettus USRP N210, but should work with other high-bandwidth Software Defined Radios (SDRs) as well. It relies on a few other repositories, mainly the one created by [Bastian Bloessl](https://github.com/bastibl/gr-ieee802-11).
 
+## Background knowledge
+For some background knowledge, I suggest checking out the following papers:
+[Description of IEEE 802.11ah standard](https://arxiv.org/pdf/1402.4675.pdf)
+[Implementation of IEEE 802.11a/g/p receiver in gnuradio](http://conferences.sigcomm.org/sigcomm/2013/papers/srif/p9.pdf)
+[First steps in creating an IEEE 802.11ah transceiver](https://www.colorado.edu/itp/sites/default/files/attached-files/70130-130943_-_jaimin_shah_-_apr_25_2016_1005_pm_-_final_capstone_paper_resubmission_team_1.pdf)
+
+Also, use Google a lot, it is an extremely valuable resource :).
+
 ## Installing GNUradio
 
 If you're starting this project as a total beginner like me, first things first is setting up your Linux distribution. I heavily recommend to install Linux natively, if you'd like to know why please read the section _GNUradio in a VM_ at the bottom of this README. Any distribution should work fine, Ubuntu is the most commonly used one so that is my preferred choice.  
@@ -12,7 +20,7 @@ This led to me reinstalling everything using PyBOMBS, which I can now say is by 
 
     sudo apt install python-pip
 
-Then follow the instructions posted on [The GNUradio PyBOMBS github](https://github.com/gnuradio/pybombs). For the impatient, these were the commands that did the trick the last time I checked:
+Then follow the instructions posted on [The GNUradio PyBOMBS Github repository](https://github.com/gnuradio/pybombs). For the impatient, these were the commands that did the trick the last time I checked:
 
     pip install PyBOMBS
     pybombs auto-config
