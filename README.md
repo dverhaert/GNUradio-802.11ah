@@ -41,6 +41,7 @@ Next up is installing the repository by Bastian Bloessl, you can find out how to
 - If you installed using PyBOMBS, make sure you are on the _master_ branch on both Bastian's repositories (gr-foo and gr-ieee-802-11), and not on the _next_ branch. If you're not, you'll get some weird errors later on. To do this, type _git checkout master_ after cloning each git repository. 
 - Make sure you've typed source _~/prefix/setup_env.sh_ in the terminal you're working in, or cmake won't know where to find the gnuradio files.
 - It doesn't really matter where you clone the repositories gr-foo and gr-ieee802-11 to, since the _cmake_ command you run later will automatically install everything in the right location. I recommend creating a folder like ~/Documents/gnuradio and install everything there to keep things clear.
+- Make sure to open and run _/examples/wifi_phy_hier.grc_ in GNUradio, in order to install the _wifi_phy_hier_ block.
 
 Now, you should have Bastian's blocks working. Try to go through some of his examples to see if they are working. 
 
