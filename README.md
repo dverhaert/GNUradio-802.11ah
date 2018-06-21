@@ -32,7 +32,7 @@ This last step can easily take a few hours, so be patient. After this, GNUradio 
     source ~/prefix/setup_env.sh
     gnuradio-companion
 
-Try to make it a habit to execute _source ~/prefix/setup_env.sh_ command before you do anything else in terminal related to GNUradio. Forgetting this has cost me a lot of extra hassle at times. Now GNUradio should be working!
+Try to make it a habit to execute _source ~/prefix/setup_env.sh_ command before you do anything else in terminal related to GNUradio, or even better: add the command in ~/.bashrc. Forgetting this has cost me a lot of extra hassle at times. Now GNUradio should be working!
 
 ## Installing gr-ieee802-11
 
