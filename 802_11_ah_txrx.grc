@@ -1533,7 +1533,7 @@
     </param>
   </block>
   <block>
-    <key>blocks_pdu_to_tagged_stream</key>
+    <key>pdu_pdu_to_tagged_stream</key>
     <param>
       <key>alias</key>
       <value></value>
@@ -1560,7 +1560,7 @@
     </param>
     <param>
       <key>id</key>
-      <value>blocks_pdu_to_tagged_stream_1</value>
+      <value>pdu_pdu_to_tagged_stream_1</value>
     </param>
     <param>
       <key>type</key>
@@ -2071,7 +2071,7 @@
     </param>
   </block>
   <block>
-    <key>ieee802_11_moving_average_xx</key>
+    <key>blocks_moving_average_xx</key>
     <param>
       <key>alias</key>
       <value></value>
@@ -2098,11 +2098,15 @@
     </param>
     <param>
       <key>id</key>
-      <value>ieee802_11_moving_average_xx_0</value>
+      <value>blocks_moving_average_xx_0</value>
     </param>
     <param>
       <key>length</key>
       <value>window_size</value>
+    </param>
+    <param>
+      <key>max_iter</key>
+      <value>4000</value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -2113,12 +2117,20 @@
       <value>0</value>
     </param>
     <param>
+      <key>scale</key>
+      <value>1</value>
+    </param>
+    <param>
       <key>type</key>
       <value>complex</value>
     </param>
+    <param>
+      <key>vlen</key>
+      <value>1</value>
+    </param>
   </block>
   <block>
-    <key>ieee802_11_moving_average_xx</key>
+    <key>blocks_moving_average_xx</key>
     <param>
       <key>alias</key>
       <value></value>
@@ -2137,7 +2149,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(816, 164)</value>
+      <value>(816, 150)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -2145,11 +2157,15 @@
     </param>
     <param>
       <key>id</key>
-      <value>ieee802_11_moving_average_xx_1</value>
+      <value>blocks_moving_average_xx_1</value>
     </param>
     <param>
       <key>length</key>
       <value>window_size + 16</value>
+    </param>
+    <param>
+      <key>max_iter</key>
+      <value>4000</value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -2158,6 +2174,10 @@
     <param>
       <key>minoutbuf</key>
       <value>0</value>
+    </param>
+    <param>
+      <key>scale</key>
+      <value>1</value>
     </param>
     <param>
       <key>type</key>
@@ -5260,7 +5280,7 @@
   </connection>
   <connection>
     <source_block_id>blocks_complex_to_mag_squared_0</source_block_id>
-    <sink_block_id>ieee802_11_moving_average_xx_1</sink_block_id>
+    <sink_block_id>blocks_moving_average_xx_1</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
@@ -5320,7 +5340,7 @@
   </connection>
   <connection>
     <source_block_id>blocks_multiply_xx_0</source_block_id>
-    <sink_block_id>ieee802_11_moving_average_xx_0</sink_block_id>
+    <sink_block_id>blocks_moving_average_xx_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
@@ -5331,7 +5351,7 @@
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>blocks_pdu_to_tagged_stream_1</source_block_id>
+    <source_block_id>pdu_pdu_to_tagged_stream_1</source_block_id>
     <sink_block_id>qtgui_const_sink_x_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
@@ -5410,7 +5430,7 @@
   </connection>
   <connection>
     <source_block_id>ieee802_11_frame_equalizer_0</source_block_id>
-    <sink_block_id>blocks_pdu_to_tagged_stream_1</sink_block_id>
+    <sink_block_id>pdu_pdu_to_tagged_stream_1</sink_block_id>
     <source_key>symbols</source_key>
     <sink_key>pdus</sink_key>
   </connection>
@@ -5421,19 +5441,19 @@
     <sink_key>mac_in</sink_key>
   </connection>
   <connection>
-    <source_block_id>ieee802_11_moving_average_xx_0</source_block_id>
+    <source_block_id>blocks_moving_average_xx_0</source_block_id>
     <sink_block_id>blocks_complex_to_mag_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>ieee802_11_moving_average_xx_0</source_block_id>
+    <source_block_id>blocks_moving_average_xx_0</source_block_id>
     <sink_block_id>ieee802_11_sync_short_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>1</sink_key>
   </connection>
   <connection>
-    <source_block_id>ieee802_11_moving_average_xx_1</source_block_id>
+    <source_block_id>blocks_moving_average_xx_1</source_block_id>
     <sink_block_id>blocks_divide_xx_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>1</sink_key>
