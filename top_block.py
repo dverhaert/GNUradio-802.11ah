@@ -26,8 +26,26 @@ from gnuradio.filter import firdes
 from gnuradio.wxgui import fftsink2
 from grc_gnuradio import wxgui as grc_wxgui
 from optparse import OptionParser
+import os
 import time
 import wx
+
+
+def _env_str(name, default):
+    value = os.environ.get(name)
+    if value is None or value == "":
+        return default
+    return value
+
+
+def _env_float(name, default):
+    value = os.environ.get(name)
+    if value is None or value == "":
+        return default
+    try:
+        return float(value)
+    except ValueError:
+        return default
 
 
 class top_block(grc_wxgui.top_block_gui):
@@ -38,7 +56,10 @@ class top_block(grc_wxgui.top_block_gui):
         ##################################################
         # Variables
         ##################################################
-        self.samp_rate = samp_rate = 5e6
+        self.usrp_addr = usrp_addr = _env_str('GR80211AH_TOPBLOCK_USRP_ADDR', 'addr=192.168.10.2')
+        self.samp_rate = samp_rate = _env_float('GR80211AH_TOPBLOCK_SAMP_RATE', 5e6)
+        self.center_freq = center_freq = _env_float('GR80211AH_TOPBLOCK_CENTER_FREQ', 2.4e9)
+        self.rx_gain = rx_gain = _env_float('GR80211AH_TOPBLOCK_RX_GAIN', 15)
 
         ##################################################
         # Blocks
@@ -60,7 +81,7 @@ class top_block(grc_wxgui.top_block_gui):
         )
         self.Add(self.wxgui_fftsink2_0.win)
         self.uhd_usrp_source_0 = uhd.usrp_source(
-        	",".join(('addr=192.168.10.2', "")),
+		",".join((usrp_addr, "")),
         	uhd.stream_args(
         		cpu_format="fc32",
         		otw_format='sc8',
@@ -68,8 +89,8 @@ class top_block(grc_wxgui.top_block_gui):
         	),
         )
         self.uhd_usrp_source_0.set_samp_rate(samp_rate)
-        self.uhd_usrp_source_0.set_center_freq(2.4e9, 0)
-        self.uhd_usrp_source_0.set_gain(15, 0)
+        self.uhd_usrp_source_0.set_center_freq(center_freq, 0)
+        self.uhd_usrp_source_0.set_gain(rx_gain, 0)
         self.uhd_usrp_source_0.set_antenna('RX1', 0)
 
 

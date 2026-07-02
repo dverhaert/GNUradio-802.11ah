@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# GNU Radio / SDR temporary artifacts
+*.dat
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+*~
+
+# GRC-generated backups and editor leftovers
+*.grc~
+
+# Build artifacts
+build/
+dist/
+out/
+
+# IDE/editor
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db

@@ -43,6 +43,23 @@ import time
 from gnuradio import qtgui
 
 
+def _env_str(name, default):
+    value = os.environ.get(name)
+    if value is None or value == "":
+        return default
+    return value
+
+
+def _env_float(name, default):
+    value = os.environ.get(name)
+    if value is None or value == "":
+        return default
+    try:
+        return float(value)
+    except ValueError:
+        return default
+
+
 class transceiver_802_11_ah(gr.top_block, Qt.QWidget):
 
     def __init__(self):
@@ -73,15 +90,16 @@ class transceiver_802_11_ah(gr.top_block, Qt.QWidget):
         ##################################################
         # Variables
         ##################################################
+        self.usrp_addr = usrp_addr = _env_str('GR80211AH_USRP_ADDR', 'addr=192.168.10.3')
         self.window_size = window_size = 48
-        self.tx_gain = tx_gain = 0.75
+        self.tx_gain = tx_gain = _env_float('GR80211AH_TX_GAIN', 0.75)
         self.sync_length = sync_length = 320
-        self.samp_rate = samp_rate = 1e6
-        self.rx_gain = rx_gain = 0.75
+        self.samp_rate = samp_rate = _env_float('GR80211AH_SAMP_RATE', 1e6)
+        self.rx_gain = rx_gain = _env_float('GR80211AH_RX_GAIN', 0.75)
         self.pdu_length = pdu_length = 500
         self.out_buf_size = out_buf_size = 96000
         self.lo_offset = lo_offset = 0
-        self.freq = freq = 2.4e9
+        self.freq = freq = _env_float('GR80211AH_CENTER_FREQ', 2.4e9)
         self.encoding = encoding = 1
         self.chan_est = chan_est = 0
         self.ch_bw = ch_bw = 0
@@ -100,6 +118,9 @@ class transceiver_802_11_ah(gr.top_block, Qt.QWidget):
         self._samp_rate_tool_bar.addWidget(self._samp_rate_combo_box)
         for label in self._samp_rate_labels: self._samp_rate_combo_box.addItem(label)
         self._samp_rate_callback = lambda i: Qt.QMetaObject.invokeMethod(self._samp_rate_combo_box, "setCurrentIndex", Qt.Q_ARG("int", self._samp_rate_options.index(i)))
+        if self.samp_rate not in self._samp_rate_options:
+            self.samp_rate = self._samp_rate_options[0]
+            samp_rate = self.samp_rate
         self._samp_rate_callback(self.samp_rate)
         self._samp_rate_combo_box.currentIndexChanged.connect(
         	lambda i: self.set_samp_rate(self._samp_rate_options[i]))
@@ -181,7 +202,7 @@ class transceiver_802_11_ah(gr.top_block, Qt.QWidget):
             sensitivity=0.56,
         )
         self.uhd_usrp_source_0 = uhd.usrp_source(
-        	",".join(('addr=192.168.10.3', "")),
+		",".join((usrp_addr, "")),
         	uhd.stream_args(
         		cpu_format="fc32",
         		channels=range(1),
@@ -193,7 +214,7 @@ class transceiver_802_11_ah(gr.top_block, Qt.QWidget):
         self.uhd_usrp_source_0.set_antenna('RX2', 0)
         (self.uhd_usrp_source_0).set_min_output_buffer(100000000)
         self.uhd_usrp_sink_0 = uhd.usrp_sink(
-        	",".join(('addr=192.168.10.3', "")),
+        ",".join((usrp_addr, "")),
         	uhd.stream_args(
         		cpu_format="fc32",
         		channels=range(1),
